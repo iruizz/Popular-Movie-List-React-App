@@ -53,6 +53,10 @@ input::placeholder {
   padding: 20px;
 }
 
+.detail-genre-list{
+  list-style:none;
+}
+
 .detail-poster{
   position: relative;
   margin-top: -160px;

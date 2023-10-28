@@ -2,6 +2,7 @@ import {useState, useEffect} from "react"
 import {Movie} from "./Movie"
 import {Filter} from "../Filter"
 
+// constants for making TMDB API calls
 const API_URL = 
   "https://api.themoviedb.org/3/discover/movie?&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&api_key=";
 
@@ -16,6 +17,7 @@ export function MoviesList(){
     // stores images info
     const [config, setConfig] = useState({});
 
+    // Function to fetch list of movie from TMDB API
     const getMovies = async () =>{
         try{
           const res = await fetch(API_URL + process.env.REACT_APP_API_KEY);
@@ -26,6 +28,7 @@ export function MoviesList(){
         }
     }
 
+    // Function to make configure API call, needed to fetch movie image
     const getConfig = async () =>{
       try{
         const res = await fetch(CONFIG_URL + process.env.REACT_APP_API_KEY);
@@ -45,6 +48,7 @@ export function MoviesList(){
 
     return(
         <div>
+            {/* Filter.js component used*/}
             <Filter filter={filter} setFilter={setFilter} />
 
             <ul className="movies-list">
@@ -56,7 +60,7 @@ export function MoviesList(){
                 )
                 )}
 
-                {/*could do this too (longer version) version above is implicit return(remove)
+                {/*could do this too (longer version), the version above is implicit removes 'return'
                 {movies.filter((movie) => {
                    return  movie.name.toLowerCase().includes(filter.toLowerCase());
                 }).map(( movie )=> {

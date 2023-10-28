@@ -11,7 +11,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
+          {/* Home path to List of Popular Movies */}
           <Route path="/" element={<MoviesList/>}/>
+          {/* Path for movie details based on movie id */}
           <Route path="/movie/:id" element={<MovieDetail/>}/>
         </Routes>
       </Router>
